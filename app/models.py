@@ -1,6 +1,6 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column
-from database import Base
+from app.database import Base
 
 class Merchant(Base):
     __tablename__ = "merchants"
@@ -22,8 +22,8 @@ class Transaction(Base):
     amount: Mapped[float]
     status: Mapped[str]
     reason: Mapped[str | None]
-    date: Mapped[str]
-    hour: Mapped[str]
+    day: Mapped[int]
+    hour: Mapped[int]
 
     def __repr__(self) -> str:
         return (
