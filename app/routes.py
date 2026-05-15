@@ -70,6 +70,7 @@ def create_transaction(txn: TransactionIn, db: Session = Depends(get_db)):
     )
 
 
+# Gets Merchant from database 
 @router.get("/merchants/{merchant_id}", response_model=MerchantOut)
 def get_merchant(merchant_id: str, db: Session = Depends(get_db)):
     merchant = db.query(Merchant).filter(Merchant.merchant_id == merchant_id).first()
@@ -78,6 +79,7 @@ def get_merchant(merchant_id: str, db: Session = Depends(get_db)):
     return merchant
 
 
+# Gets all of a merchants transactions from database
 @router.get("/merchants/{merchant_id}/transactions")
 def get_merchant_transactions(merchant_id: str, db: Session = Depends(get_db)):
     txns = db.query(Transaction).filter(
