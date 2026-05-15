@@ -40,10 +40,6 @@ def scoring_rules(base_score, transactions) -> float:
         return base_score
 
         
-
-
-
-
 def compute_tier(score) -> str:
     if score < 100:
         return "low_risk"
